@@ -1,0 +1,56 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/scala,visualstudiocode,metals,bloop
+# Edit at https://www.toptal.com/developers/gitignore?templates=scala,visualstudiocode,metals,bloop
+
+### Bloop ###
+.bloop/
+.bsp/
+
+### Metals ###
+.metals/
+project/**/metals.sbt
+
+project/target
+project/target/streams
+
+project/target/*
+project/project/*
+src/main/scala/pis5/project
+src/main/scala/pis5/target
+src/main/scala/pis5/.bsp
+
+### Scala ###
+*.class
+*.log
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# Support for Project snippet scope
+!.vscode/*.code-snippets
+
+# End of https://www.toptal.com/developers/gitignore/api/scala,visualstudiocode,metals,bloop
+
+
+target
+target/*
+target/streams/compile/compileIncremental/_global/streams/out
+target/scala-3.1.0/update/update_cache_3/output
+target/streams/compile/compile/_global/streams/out
+target/streams/compile/compileIncremental/_global/streams/out
