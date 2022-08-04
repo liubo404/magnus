@@ -2,8 +2,10 @@ package xyz.abc.recommendation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan("xyz.abc")
 public class RecommendationServiceApplication {
 
 	public static void main(String[] args) {
