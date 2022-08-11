@@ -56,11 +56,12 @@ public class ProductServiceImpl implements ProductService {
   public Product getProduct(int productId) {
     LOG.debug("/product return the found product for productId={}", productId);
 
-    
     if (productId < 1)
       throw new InvalidInputException("InvalidproductId: " + productId);
+
     ProductEntity entity = repository.findByProductId(productId)
         .orElseThrow(() -> new NotFoundException("No product found forproductId: " + productId));
+
     Product response = mapper.entityToApi(entity);
     response.setServiceAddress(serviceUtil.getServiceAddress());
     return response;
@@ -78,6 +79,7 @@ public class ProductServiceImpl implements ProductService {
     }
   }
 
+  @Override
   public void deleteProduct(int productId) {
     repository.findByProductId(productId).ifPresent(e -> repository.delete(e));
   }
