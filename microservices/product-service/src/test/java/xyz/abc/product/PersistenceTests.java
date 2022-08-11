@@ -28,7 +28,7 @@ public class PersistenceTests extends MongoDbTestBase {
     private ProductEntity savedEntity;
 
     @BeforeEach
-    void setupDb() {
+    public void setupDb() {
         repository.deleteAll();
 
         ProductEntity entity = new ProductEntity(1, "n", 1);
@@ -38,7 +38,7 @@ public class PersistenceTests extends MongoDbTestBase {
     }
 
     @Test
-    void create() {
+    public void create() {
 
         ProductEntity newEntity = new ProductEntity(2, "n", 2);
         repository.save(newEntity);
@@ -50,7 +50,7 @@ public class PersistenceTests extends MongoDbTestBase {
     }
 
     @Test
-    void update() {
+    public void update() {
         savedEntity.setName("n2");
         repository.save(savedEntity);
 
@@ -60,13 +60,13 @@ public class PersistenceTests extends MongoDbTestBase {
     }
 
     @Test
-    void delete() {
+    public void delete() {
         repository.delete(savedEntity);
         assertFalse(repository.existsById(savedEntity.getId()));
     }
 
     @Test
-    void getByProductId() {
+    public void getByProductId() {
         Optional<ProductEntity> entity = repository.findByProductId(savedEntity.getProductId());
 
         assertTrue(entity.isPresent());
@@ -74,7 +74,7 @@ public class PersistenceTests extends MongoDbTestBase {
     }
 
     @Test
-    void duplicateError() {
+    public void duplicateError() {
 
         System.out.println(".................111111111..........");
         assertThrows(DuplicateKeyException.class, () -> {
@@ -86,9 +86,9 @@ public class PersistenceTests extends MongoDbTestBase {
             System.out.println("......................22222222222.....");
         });
     }
-
+ 
     @Test
-    void optimisticLockError() {
+    public void optimisticLockError() {
 
         // Store the saved entity in two separate entity objects
         ProductEntity entity1 = repository.findById(savedEntity.getId()).get();
@@ -113,7 +113,7 @@ public class PersistenceTests extends MongoDbTestBase {
     }
 
     @Test
-    void paging() {
+    public void paging() {
 
         repository.deleteAll();
 

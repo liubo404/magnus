@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14010665-14fc-462b-8a74-c2d69b04a1cd" name="Default Changelist" comment="" />
+    <list default="true" id="14010665-14fc-462b-8a74-c2d69b04a1cd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/microservices/recommendation-service/src/main/java/xyz/abc/recommendation/persistence/RecommendationEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/recommendation-service/src/main/java/xyz/abc/recommendation/persistence/RecommendationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/recommendation-service/src/main/java/xyz/abc/recommendation/services/RecommendationMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/review-service/src/main/java/xyz/abc/review/persistence/ReviewEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/review-service/src/main/java/xyz/abc/review/persistence/ReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/review-service/src/main/java/xyz/abc/review/services/ReviewMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/review-service/src/test/java/xyz/abc/review/MapperTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/xyz/abc/api/core/recommendation/Recommendation.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/xyz/abc/api/core/recommendation/Recommendation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/product-service/src/main/java/xyz/abc/product/ProductServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/product-service/src/main/java/xyz/abc/product/ProductServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/product-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/product-service/src/test/java/xyz/abc/product/PersistenceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/product-service/src/test/java/xyz/abc/product/PersistenceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/recommendation-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/recommendation-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/review-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/review-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t.txt" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,11 +44,18 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="2BvDNRDfdPX43uyFKYNOZabwX1n" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
@@ -60,10 +95,29 @@
       <workItem from="1657777626588" duration="1098000" />
       <workItem from="1657779149733" duration="591000" />
       <workItem from="1658978555365" duration="148000" />
+      <workItem from="1660183450812" duration="579000" />
+      <workItem from="1660185046382" duration="53000" />
+      <workItem from="1660205390843" duration="248000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
