@@ -1,17 +1,5 @@
 package xyz.abc.review;
 
-// @SpringBootApplication
-// @ComponentScan("xyz.abc")
-// public class ReviewServiceApplication {
-
-// 	public static void main(String[] args) {
-// 		SpringApplication.run(ReviewServiceApplication.class, args);
-// 	}
-
-// }
-
-// package se.magnus.microservices.core.review;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;

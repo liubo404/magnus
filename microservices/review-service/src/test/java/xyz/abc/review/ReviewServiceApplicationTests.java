@@ -1,19 +1,5 @@
 package xyz.abc.review;
 
-// import org.junit.jupiter.api.Test;
-// import org.springframework.boot.test.context.SpringBootTest;
-
-// @SpringBootTest
-// class ReviewServiceApplicationTests {
-
-// 	@Test
-// 	void contextLoads() {
-// 	}
-
-// }
-
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.http.HttpStatus.*;
@@ -26,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.web.reactive.server.WebTestClient;
-// import se.magnus.api.core.review.Review;
-// import se.magnus.microservices.core.review.persistence.ReviewRepository;
 
 import xyz.abc.api.core.review.Review;
 import xyz.abc.review.persistence.ReviewRepository;
@@ -60,9 +44,9 @@ class ReviewServiceApplicationTests extends MySqlTestBase {
     assertEquals(3, repository.findByProductId(productId).size());
 
     getAndVerifyReviewsByProductId(productId, OK)
-      .jsonPath("$.length()").isEqualTo(3)
-      .jsonPath("$[2].productId").isEqualTo(productId)
-      .jsonPath("$[2].reviewId").isEqualTo(3);
+        .jsonPath("$.length()").isEqualTo(3)
+        .jsonPath("$[2].productId").isEqualTo(productId)
+        .jsonPath("$[2].reviewId").isEqualTo(3);
   }
 
   @Test
@@ -74,14 +58,14 @@ class ReviewServiceApplicationTests extends MySqlTestBase {
     assertEquals(0, repository.count());
 
     postAndVerifyReview(productId, reviewId, OK)
-      .jsonPath("$.productId").isEqualTo(productId)
-      .jsonPath("$.reviewId").isEqualTo(reviewId);
+        .jsonPath("$.productId").isEqualTo(productId)
+        .jsonPath("$.reviewId").isEqualTo(reviewId);
 
     assertEquals(1, repository.count());
 
     postAndVerifyReview(productId, reviewId, UNPROCESSABLE_ENTITY)
-      .jsonPath("$.path").isEqualTo("/review")
-      .jsonPath("$.message").isEqualTo("Duplicate key, Product Id: 1, Review Id:1");
+        .jsonPath("$.path").isEqualTo("/review")
+        .jsonPath("$.message").isEqualTo("Duplicate key, Product Id: 1, Review Id:1");
 
     assertEquals(1, repository.count());
   }
@@ -105,23 +89,23 @@ class ReviewServiceApplicationTests extends MySqlTestBase {
   void getReviewsMissingParameter() {
 
     getAndVerifyReviewsByProductId("", BAD_REQUEST)
-      .jsonPath("$.path").isEqualTo("/review")
-      .jsonPath("$.message").isEqualTo("Required int parameter 'productId' is not present");
+        .jsonPath("$.path").isEqualTo("/review")
+        .jsonPath("$.message").isEqualTo("Required int parameter 'productId' is not present");
   }
 
   @Test
   void getReviewsInvalidParameter() {
 
     getAndVerifyReviewsByProductId("?productId=no-integer", BAD_REQUEST)
-      .jsonPath("$.path").isEqualTo("/review")
-      .jsonPath("$.message").isEqualTo("Type mismatch.");
+        .jsonPath("$.path").isEqualTo("/review")
+        .jsonPath("$.message").isEqualTo("Type mismatch.");
   }
 
   @Test
   void getReviewsNotFound() {
 
     getAndVerifyReviewsByProductId("?productId=213", OK)
-      .jsonPath("$.length()").isEqualTo(0);
+        .jsonPath("$.length()").isEqualTo(0);
   }
 
   @Test
@@ -130,42 +114,44 @@ class ReviewServiceApplicationTests extends MySqlTestBase {
     int productIdInvalid = -1;
 
     getAndVerifyReviewsByProductId("?productId=" + productIdInvalid, UNPROCESSABLE_ENTITY)
-      .jsonPath("$.path").isEqualTo("/review")
-      .jsonPath("$.message").isEqualTo("Invalid productId: " + productIdInvalid);
+        .jsonPath("$.path").isEqualTo("/review")
+        .jsonPath("$.message").isEqualTo("Invalid productId: " + productIdInvalid);
   }
 
   private WebTestClient.BodyContentSpec getAndVerifyReviewsByProductId(int productId, HttpStatus expectedStatus) {
     return getAndVerifyReviewsByProductId("?productId=" + productId, expectedStatus);
   }
 
-  private WebTestClient.BodyContentSpec getAndVerifyReviewsByProductId(String productIdQuery, HttpStatus expectedStatus) {
+  private WebTestClient.BodyContentSpec getAndVerifyReviewsByProductId(String productIdQuery,
+      HttpStatus expectedStatus) {
     return client.get()
-      .uri("/review" + productIdQuery)
-      .accept(APPLICATION_JSON)
-      .exchange()
-      .expectStatus().isEqualTo(expectedStatus)
-      .expectHeader().contentType(APPLICATION_JSON)
-      .expectBody();
+        .uri("/review" + productIdQuery)
+        .accept(APPLICATION_JSON)
+        .exchange()
+        .expectStatus().isEqualTo(expectedStatus)
+        .expectHeader().contentType(APPLICATION_JSON)
+        .expectBody();
   }
 
   private WebTestClient.BodyContentSpec postAndVerifyReview(int productId, int reviewId, HttpStatus expectedStatus) {
-    Review review = new Review(productId, reviewId, "Author " + reviewId, "Subject " + reviewId, "Content " + reviewId, "SA");
+    Review review = new Review(productId, reviewId, "Author " + reviewId, "Subject " + reviewId, "Content " + reviewId,
+        "SA");
     return client.post()
-      .uri("/review")
-      .body(just(review), Review.class)
-      .accept(APPLICATION_JSON)
-      .exchange()
-      .expectStatus().isEqualTo(expectedStatus)
-      .expectHeader().contentType(APPLICATION_JSON)
-      .expectBody();
+        .uri("/review")
+        .body(just(review), Review.class)
+        .accept(APPLICATION_JSON)
+        .exchange()
+        .expectStatus().isEqualTo(expectedStatus)
+        .expectHeader().contentType(APPLICATION_JSON)
+        .expectBody();
   }
 
   private WebTestClient.BodyContentSpec deleteAndVerifyReviewsByProductId(int productId, HttpStatus expectedStatus) {
     return client.delete()
-      .uri("/review?productId=" + productId)
-      .accept(APPLICATION_JSON)
-      .exchange()
-      .expectStatus().isEqualTo(expectedStatus)
-      .expectBody();
+        .uri("/review?productId=" + productId)
+        .accept(APPLICATION_JSON)
+        .exchange()
+        .expectStatus().isEqualTo(expectedStatus)
+        .expectBody();
   }
 }

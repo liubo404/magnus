@@ -1,9 +1,11 @@
 package xyz.abc.recommendation.services;
 
 import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+
 import xyz.abc.api.core.recommendation.Recommendation;
 import xyz.abc.recommendation.persistence.RecommendationEntity;
 
